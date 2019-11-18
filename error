@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/var/lib/ambari-agent/cache/stacks/HDP/2.6/services/REDIS-5.0.0/package/scripts/redisSlave.py", line 164, in <module>
+    RedisSlave().execute()
+  File "/usr/lib/ambari-agent/lib/resource_management/libraries/script/script.py", line 375, in execute
+    method(env)
+  File "/var/lib/ambari-agent/cache/stacks/HDP/2.6/services/REDIS-5.0.0/package/scripts/redisSlave.py", line 140, in start
+    self.configure(env)
+  File "/usr/lib/ambari-agent/lib/resource_management/libraries/script/script.py", line 120, in locking_configure
+    original_configure(obj, *args, **kw)
+  File "/var/lib/ambari-agent/cache/stacks/HDP/2.6/services/REDIS-5.0.0/package/scripts/redisSlave.py", line 67, in configure
+    content=Template("redis-slave.conf.j2", configurations=network_configurations),
+  File "/usr/lib/ambari-agent/lib/resource_management/core/source.py", line 137, in __init__
+    self.template = self.template_env.get_template(self.name)     
+  File "/usr/lib/ambari-agent/lib/ambari_jinja2/environment.py", line 716, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/lib/ambari-agent/lib/ambari_jinja2/environment.py", line 690, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/lib/ambari-agent/lib/ambari_jinja2/loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "/usr/lib/ambari-agent/lib/ambari_jinja2/environment.py", line 492, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "/var/lib/ambari-agent/cache/stacks/HDP/2.6/services/REDIS-5.0.0/package/templates/redis-slave.conf.j2", line 397, in template
+    repl-disable-tcp-nodelay {{{{repl_disable_tcp_nodelay}}}}
+ambari_jinja2.exceptions.TemplateSyntaxError: expected token ':', got '}'
